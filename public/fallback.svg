@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <pattern id="store-pattern" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse" patternTransform="rotate(135)">
+      <!-- Carrito de compras -->
+      <path d="M5 20 L3 10 L17 10 L15 20 Z" fill="none" stroke="#ccc" stroke-width="1"/>
+      <circle cx="7" cy="22" r="1" fill="#ccc"/>
+      <circle cx="13" cy="22" r="1" fill="#ccc"/>
+      
+      <!-- Etiqueta de precio -->
+      <rect x="25" y="5" width="5" height="5" fill="#e0e0e0" stroke="#ccc" stroke-width="0.5"/>
+      <text x="27.5" y="9" font-family="Arial" font-size="4" text-anchor="middle" fill="#999">$</text>
+      
+      <!-- Estrella de calificación -->
+      <path d="M40 15 L41 17 L43 17.5 L41.5 19 L42 21 L40 20 L38 21 L38.5 19 L37 17.5 L39 17 Z" fill="#e0e0e0" stroke="#ccc" stroke-width="0.5"/>
+      
+      <!-- Ícono de búsqueda -->
+      <circle cx="10" cy="35" r="3" fill="none" stroke="#ccc" stroke-width="1"/>
+      <line x1="12" y1="37" x2="15" y2="40" stroke="#ccc" stroke-width="1"/>
+      
+      <!-- Ícono de envío -->
+      <path d="M30 30 L35 30 L37 33 L37 37 L30 37 Z" fill="none" stroke="#ccc" stroke-width="1"/>
+      <circle cx="32" cy="38" r="1" fill="#ccc"/>
+      <circle cx="35" cy="38" r="1" fill="#ccc"/>
+    </pattern>
+  </defs>
+  
+  <rect width="100" height="100" fill="url(#store-pattern)"/>
+</svg>
