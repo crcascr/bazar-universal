@@ -5,7 +5,7 @@ function SearchResults({ searchParams }) {
   const query = searchParams.search;
 
   return (
-    <div className="container mx-auto px-4">
+    <div className="container mx-auto p-4">
       <h2 className="text-2xl font-bold mb-4">Resultados para: {query}</h2>
       <Suspense fallback={<div>Cargando...</div>}>
         <ProductList query={query} />
