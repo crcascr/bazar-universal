@@ -1,5 +1,7 @@
 import Link from "next/link";
 import StarRating from "./StarRating";
+import CapitalizeWords from "./CapitalizeWords";
+import Image from "next/image";
 
 async function getProducts(query) {
   const res = await fetch(`http://localhost:3000/api/items?q=${query}`);
@@ -9,26 +11,26 @@ async function getProducts(query) {
   return res.json();
 }
 
-function capitalizeWords(str) {
-  return str.replace(/\b\w/g, (char) => char.toUpperCase());
-}
-
 async function ProductList({ query }) {
   const products = await getProducts(query);
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {products.map((product) => (
-        <div key={product.id} className="border p-4 rounded-2xl">
-          <img
+        <div key={product.id} className="border p-4 rounded-2xl">          
+          <Image
             src={product.thumbnail}
             alt={product.title}
             className="w-full h-48 object-cover mb-2 rounded-2xl"
+            width="1280"
+            height="720"
+            placeholder="blur"
+            blurDataURL="/fallback.svg"
           />
           <h3 className="text-xl font-light">
-            {capitalizeWords(product.title)}
+            {CapitalizeWords(product.title)}
           </h3>
           <p className="text-gray-500 mb-2">
-            Marca: {capitalizeWords(product.brand)}
+            Marca: {CapitalizeWords(product.brand)}
           </p>
           <p className="text-gray-600">{product.description}</p>
           <div className="flex flex-row items-center justify-between my-1">
