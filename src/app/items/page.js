@@ -1,12 +1,15 @@
 import { Suspense } from "react";
 import ProductList from "@/components/ProductList";
+import CapitalizeWords from "@/components/CapitalizeWords";
 
 function SearchResults({ searchParams }) {
   const query = searchParams.search;
 
   return (
-    <div className="container mx-auto p-4">
-      <h2 className="text-2xl font-bold mb-4">Resultados para: {query}</h2>
+    <div className="container mx-auto p-4 h-screen">
+      <h2 className="text-[26px] font-semibold">
+        Resultados para: {CapitalizeWords(query)}
+      </h2>
       <Suspense
         fallback={
           <div className="flex justify-center items-center h-64">
@@ -44,7 +47,7 @@ function SearchResults({ searchParams }) {
                 />
               </circle>
             </svg>
-            <style jsx>{`
+            <style>{`
               @keyframes pulse {
                 0% {
                   transform: scale(1);

@@ -3,7 +3,7 @@ import ProductDetail from "@/components/ProductDetail";
 
 function ProductPage({ params }) {
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 h-screen">
       <Suspense
         fallback={
           <div className="flex justify-center items-center h-64">
@@ -41,7 +41,7 @@ function ProductPage({ params }) {
                 />
               </circle>
             </svg>
-            <style jsx>{`
+            <style>{`
               @keyframes pulse {
                 0% {
                   transform: scale(1);

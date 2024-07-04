@@ -1,6 +1,7 @@
 import StarRating from "./StarRating";
 import CapitalizeWords from "./CapitalizeWords";
 import Image from "next/image";
+import ProductCategory from "./ProductCategory";
 
 async function getProduct(id) {
   const res = await fetch(`http://localhost:3000/api/items/${id}`);
@@ -31,10 +32,18 @@ async function ProductDetail({ id }) {
           />
         </div>
         <div className="flex flex-col md:ml-2 md:mr-8 md:max-w-[352px]">
-          <p className="text-xs mb-2">
-            {randomPosition()}° en {CapitalizeWords(product.category)}
-          </p>
-          <h2 className="text-2xl font-bold md:mb-4">{product.title}</h2>
+          <div className="flex flex-row items-center mb-2">
+            <p className="text-xs mr-1 select-none">{randomPosition()}° en</p>
+            {ProductCategory({
+              category: product.category,
+              iconWidth: "w-4",
+              iconHeight: "h-4",
+              fontSize: "text-xs",
+            })}
+          </div>
+          <h2 className="text-2xl font-bold md:mb-4">
+            {CapitalizeWords(product.title)}
+          </h2>
           <div className="flex flex-row items-center">
             <p className="text-gray-600 mr-2 text-sm">{product.rating}</p>
             <StarRating rating={product.rating} />
@@ -58,7 +67,7 @@ async function ProductDetail({ id }) {
             {product.description}
           </p>
         </div>
-        <div className="border-black/10 border md:max-w-[325px] md:min-w-[325px] w-full flex flex-col rounded-lg h-fit">
+        <div className="border-custom border md:max-w-[325px] md:min-w-[325px] w-full flex flex-col rounded-lg h-fit">
           <div className="py-6 md:px-4 flex flex-col">
             {product.price < 15 ? (
               <p className="mb-1">Envío a nivel nacional</p>
@@ -106,9 +115,9 @@ async function ProductDetail({ id }) {
             <button className="bg-blue-500 text-white px-6 h-12 font-semibold rounded-md mt-2">
               Comprar ahora
             </button>
-            <p className="my-5 text-sm text-black/90">
+            <p className="my-5 text-sm text-black/90 select-none">
               Tienda oficial{" "}
-              <span className="text-blue-500">
+              <span className="text-blue-500 cursor-pointer">
                 {CapitalizeWords(product.brand)}
               </span>
             </p>
